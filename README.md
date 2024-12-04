@@ -3,7 +3,7 @@
 
 ![MasterHead](https://cdn.vectorstock.com/i/500p/73/74/programmer-develop-code-doodle-concept-developer-vector-41927374.avif)
 
-<img align="right" alt="coding" width="400" src="https://gifdb.com/images/high/animated-man-computer-coding-nae6mec378lsg1i3.webp">
+<img align="right" alt="coding" width="400" src="https://drive.google.com/file/d/1mdxTzmSjFTvv7JBw_DVAtmshdPnzHCn4/view?usp=drive_link">
 <br/>
 
 ### 🌟 About Me  
