@@ -1,11 +1,5 @@
+import java.util.*;
 class Result {
-
-    /*
-     * Complete the 'plusMinus' function below.
-     *
-     * The function accepts INTEGER_ARRAY arr as parameter.
-     */
-
     public static void plusMinus(List<Integer> arr) {
     // Write your code here
     int p =0;
@@ -24,7 +18,6 @@ class Result {
     float res1 = (float) p/s;
     float res2 =  (float) n/s;
     float res3 = (float) z/s;
-    
     System.out.println(res1+"\n"+res2+"\n"+res3);
     }
 
