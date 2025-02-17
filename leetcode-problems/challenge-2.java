@@ -1,3 +1,4 @@
+import java.util.*;
 // 2559. Count Vowel Strings in Ranges
 class Solution {
     public int[] vowelStrings(String[] words, int[][] queries) {

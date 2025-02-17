@@ -1,4 +1,8 @@
 // linkedlist - leetcode - remove elements from linked list
+struct ListNode{
+    int val;
+    ListNode* next;
+};
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {

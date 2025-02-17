@@ -1,3 +1,4 @@
+import java.util.*;
 
 // GFG
 class Solution {

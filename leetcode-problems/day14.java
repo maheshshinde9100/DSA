@@ -1,5 +1,7 @@
 // Arsh
-class Solution {
+import java.util.*;
+
+class Solution1 {
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> dups = new ArrayList<>();
         int count=0;
@@ -25,7 +27,7 @@ class Solution {
 }
 
 //Apna clg
-class Solution {
+class Solution2 {
     public int findKthLargest(int[] nums, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int num : nums) {
