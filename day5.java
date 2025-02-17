@@ -1,4 +1,4 @@
-class Solution {
+class day5 {
     public int maxSubArray(int[] nums) {
         int maxSum = nums[0];
         int currentSum = nums[0];
