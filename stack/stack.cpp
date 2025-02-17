@@ -1,3 +1,5 @@
+//stack operations practice 
+//17/02/2025
 #include<iostream>
 #define MAX 10
 using namespace std;
@@ -12,7 +14,8 @@ int main(){
         cout<<"Select stack operation ->"<<endl;
         cout<<"1.push"<<endl;
         cout<<"2.pop"<<endl;
-        cout<<"3.display"<<endl;
+        cout<<"3.top element"<<endl;
+        cout<<"4.display stack"<<endl;
         cin>>ch;
         switch(ch){
             case 1:
@@ -34,8 +37,15 @@ int main(){
                 }
                 break;
             case 3:
+                if(s.top != -1){
+                    cout<<"TOP -> "<<s.data[s.top]<<endl;
+                }else{ 
+                    cout<<"Top -> -1 (stack is empty)"<<endl; 
+                }
+                break;
+            case 4:
                 cout<<"Displaying stack ---"<<endl;
-                for(int i=0;i<MAX-1;i++){
+                for(int i=s.top;i>=0;--i){
                     cout<<s.data[i]<<endl;
                 }
                 break;
