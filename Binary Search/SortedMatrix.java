@@ -1,5 +1,4 @@
 import java.util.Arrays;
-
 public class SortedMatrix {
     public static void main(String[] args) {
         int[][] arr = {
@@ -11,8 +10,9 @@ public class SortedMatrix {
     }
     // search in the row provided between the cols provided
     static int[] binarySearch(int[][] matrix, int row, int cStart, int cEnd, int target) {
+        // same binary search procedure just we have to check elements column-wise or row-wise for binary search
         while (cStart <= cEnd) {
-            int mid = cStart + (cEnd - cStart) / 2;
+            int mid = cStart + (cEnd - cStart) / 2; //same as (start+end)/2
             if (matrix[row][mid] == target) {
                 return new int[]{row, mid};
             }
@@ -26,8 +26,8 @@ public class SortedMatrix {
     }
 
     static int[] search(int[][] matrix, int target) {
-        int rows = matrix.length;
-        int cols = matrix[0].length; // be cautious, matrix may be empty
+        int rows = matrix.length; // no of rows ----
+        int cols = matrix[0].length; //no of col ---- // be cautious, matrix may be empty
         if (cols == 0){
             return new int[] {-1,-1};
         }
