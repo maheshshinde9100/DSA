@@ -1,51 +1,37 @@
 #include <iostream>
-
 using namespace std;
 
-#define MAX_EDGES 100  // Maximum edges (Adjust as needed)
-#define MAX_VERTICES 100  // Maximum vertices (Adjust as needed)
+#define MAX 100  // Maximum vertices or edges
+#define INF 99999 // Infinite weight for no connection
 
-// Structure to represent an edge
 struct Edge {
     int src, dest, weight;
 };
 
-// Structure to represent a graph
-struct Graph {
-    int V, E;  // Number of vertices and edges
-    Edge edges[MAX_EDGES];  // Array of edges
-};
-
-// Disjoint Set (Union-Find)
 struct Subset {
-    int parent;
-    int rank;
+    int parent, rank;
 };
 
-// Function to find the parent of a node with path compression
-int find(Subset subsets[], int i) {
-    if (subsets[i].parent != i) {
-        subsets[i].parent = find(subsets, subsets[i].parent);
-    }
-    return subsets[i].parent;
+int find(int parent[], int i) {
+    if (parent[i] == i)
+        return i;
+    return parent[i] = find(parent, parent[i]); // Path Compression
 }
 
-// Function to perform Union of two subsets using rank
-void Union(Subset subsets[], int x, int y) {
-    int rootX = find(subsets, x);
-    int rootY = find(subsets, y);
+void Union(int parent[], int rank[], int x, int y) {
+    int rootX = find(parent, x);
+    int rootY = find(parent, y);
 
-    if (subsets[rootX].rank < subsets[rootY].rank) {
-        subsets[rootX].parent = rootY;
-    } else if (subsets[rootX].rank > subsets[rootY].rank) {
-        subsets[rootY].parent = rootX;
+    if (rank[rootX] < rank[rootY]) {
+        parent[rootX] = rootY;
+    } else if (rank[rootX] > rank[rootY]) {
+        parent[rootY] = rootX;
     } else {
-        subsets[rootY].parent = rootX;
-        subsets[rootX].rank++;
+        parent[rootY] = rootX;
+        rank[rootX]++;
     }
 }
 
-// Simple Bubble Sort to sort edges by weight
 void sortEdges(Edge edges[], int E) {
     for (int i = 0; i < E - 1; i++) {
         for (int j = 0; j < E - i - 1; j++) {
@@ -58,57 +44,45 @@ void sortEdges(Edge edges[], int E) {
     }
 }
 
-// Function to find the Minimum Spanning Tree using Kruskal's Algorithm
-void KruskalMST(Graph* graph) {
-    int V = graph->V;
-    Edge result[MAX_VERTICES];  // Stores MST edges
-    int e = 0;  // Number of edges in MST
-    int i = 0;  // Index for sorted edges
+void KruskalMST(Edge edges[], int V, int E) {
+    sortEdges(edges, E);  // Step 1: Sort edges by weight
 
-    // Step 1: Sort edges by weight
-    sortEdges(graph->edges, graph->E);
-
-    // Step 2: Initialize subsets for Union-Find
-    Subset subsets[MAX_VERTICES];
+    int parent[MAX], rank[MAX];
     for (int v = 0; v < V; v++) {
-        subsets[v].parent = v;
-        subsets[v].rank = 0;
+        parent[v] = v;  // Initialize parent of each vertex
+        rank[v] = 0;    // Rank is 0
     }
 
-    // Step 3: Pick the smallest edge and check for cycles
-    while (e < V - 1 && i < graph->E) {
-        Edge nextEdge = graph->edges[i++];
-        int x = find(subsets, nextEdge.src);
-        int y = find(subsets, nextEdge.dest);
+    Edge result[MAX];  // Store MST edges
+    int e = 0;        // Count edges in MST
+    int i = 0;        // Index for edges
 
-        // If no cycle is formed, add edge to MST
-        if (x != y) {
+    while (e < V - 1 && i < E) {
+        Edge nextEdge = edges[i++];
+
+        int x = find(parent, nextEdge.src);
+        int y = find(parent, nextEdge.dest);
+
+        if (x != y) {  // No cycle
             result[e++] = nextEdge;
-            Union(subsets, x, y);
+            Union(parent, rank, x, y);
         }
     }
 
-    // Step 4: Print the MST
-    cout << "Edges in the Minimum Spanning Tree (MST):\n";
+    cout << "Edges in the Minimum Spanning Tree:\n";
     for (int j = 0; j < e; j++) {
         cout << result[j].src << " -- " << result[j].dest << " == " << result[j].weight << endl;
     }
 }
 
 int main() {
-    Graph graph;
-    graph.V = 5;
-    graph.E = 7;
+    int V = 5, E = 7;
+    Edge edges[] = {
+        {0, 1, 10}, {0, 2, 6}, {0, 3, 5},
+        {1, 3, 15}, {2, 3, 4}, {1, 2, 25}, {3, 4, 7}
+    };
 
-    graph.edges[0] = {0, 1, 10};
-    graph.edges[1] = {0, 2, 6};
-    graph.edges[2] = {0, 3, 5};
-    graph.edges[3] = {1, 3, 15};
-    graph.edges[4] = {2, 3, 4};
-    graph.edges[5] = {1, 2, 25};
-    graph.edges[6] = {3, 4, 7};
-
-    KruskalMST(&graph);
+    KruskalMST(edges, V, E);
 
     return 0;
 }
