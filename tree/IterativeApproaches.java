@@ -116,12 +116,39 @@ public class IterativeApproaches {
         }
     }
 
+    public TreeNode deleteNode(TreeNode root, int key){
+        if(root==null){
+            return null;
+        }
+        if(key<root.data){
+            root.left=deleteNode(root.left,key);
+        }else if(key> root.data){
+            root.right = deleteNode(root.right,key);
+        }else{
+            //equal key=root.data
+            if(root.left==null && root.right==null) return null; //leaf node
+            else if(root.left==null) return root.right;         //have one right child
+            else if(root.right==null) return root.left;     //have one left child
+            else{                                           //have two child
+                //inorder successor
+                TreeNode temp = root.right;
+                while(temp.left!=null){
+                    temp = temp.left;
+                }
+
+                root.data = temp.data;
+                root.right = deleteNode(root.right,temp.data);
+            }
+        }
+        return root;
+    }
+
     public static void main(String[] args) {
         IterativeApproaches obj = new IterativeApproaches();
         Scanner sc = new Scanner(System.in);
         int choice;
         do {
-            System.out.println("\nEnter choice :>\n1. Insert\n2. Display\n3. Exit");
+            System.out.println("\nEnter choice :>\n1. Insert\n2. Display\n3. Delete\n4. Exit");
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
@@ -131,6 +158,12 @@ public class IterativeApproaches {
                     obj.display();
                     break;
                 case 3:
+                    System.out.print("Enter value to delete: ");
+                    int val = sc.nextInt();
+                    obj.root = obj.deleteNode(obj.root, val); // update root in case root is deleted
+                    break;
+
+                case 4:
                     System.out.println("Exiting program.");
                     break;
                 default:

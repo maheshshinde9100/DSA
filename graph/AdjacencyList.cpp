@@ -26,14 +26,15 @@ class Graph{
     void addEdge(int src,int dest,int weight){
         int srcIndex = getIndex(src);
         int destIndex = getIndex(dest);
-        
-        GraphNode* newNode = new GraphNode(dest,weight);
-        newNode->next = arr[srcIndex];
-        arr[srcIndex] = newNode;
+        if(srcIndex!=-1 && destIndex!=-1){
+                GraphNode* newNode = new GraphNode(dest,weight);
+                newNode->next = arr[srcIndex];
+                arr[srcIndex] = newNode;
 
-        newNode = new GraphNode(src,weight);
-        newNode->next = arr[destIndex];
-        arr[destIndex] = newNode;
+                newNode = new GraphNode(src,weight);
+                newNode->next = arr[destIndex];
+                arr[destIndex] = newNode;
+        }
     }
 
     int getIndex(int data){
