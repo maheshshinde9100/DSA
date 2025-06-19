@@ -5,24 +5,36 @@
 */
 import java.util.Arrays;
 public class BubbleSort {
-    public static void main(String[] args){
-        int[] arr = {10,5,100,43,50,88};
-        boolean swapped;
-        // ascending
-        for(int i=0;i<arr.length;i++){
-            swapped = false;
-            for(int j=1;j<arr.length-1;j++){
-                if(arr[j] < arr[j-1]){
-                    int temp = arr[j];
-                    arr[j] = arr[j-1];
-                    arr[j-1] = temp;   
-                    swapped = true;
-                }
-            }
-            if(!swapped){ //!false  = true
-                break;
+    public void sort(int[] arr,int n){
+        if(n==1) return;
+        int count = 0;
+        for(int i=0;i<n-1;i++){
+            if(arr[i]>arr[i+1]){
+                swap(arr,i,i+1);
+                count++;
             }
         }
+        if(count == 0) return;
+        sort(arr, n-1);
+    }
+    public void swap(int[] arr,int i,int j){
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public static void main(String[] args){
+        int[] arr = {10,5,100,43,50,5,88};
+        // for(int i=0;i<arr.length;i++){
+        //     for(int j=i+1;j<arr.length;j++){
+        //         if(arr[i]>arr[j]){
+        //             int temp = arr[i];
+        //             arr[i] = arr[j];
+        //             arr[j] = temp;
+        //         }
+        //     }
+        // }
+        BubbleSort obj= new BubbleSort();
+        obj.sort(arr,arr.length);
         System.out.println(arr.length);
         System.out.println(Arrays.toString(arr));
     }
