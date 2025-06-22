@@ -2,36 +2,62 @@ package Patterns;
 
 public class StarPatterns {
     public static void main(String[] args) {
-//            1.  *****
-//                *****
-//                *****
-//                *****
-//                *****
-        System.out.println("First Pattern :> ");
-        firstPattern();
-//            2.  *
-//                **
-//                ***
-//                ****
-//                *****
-        System.out.println("Second Pattern :> ");
-        secondPattern();
-//            3.  *****
-//                ****
-//                ***
-//                **
-//                *
-        System.out.println("Third Pattern :> ");
-        thirdPattern();
-//    4.  1
-//        1 2
-//        1 2 3
-//        1 2 3 4
-//        1 2 3 4 5
-        System.out.println("Fourth Pattern :> ");
-        fourthPattern();
+////            1.  *****
+////                *****
+////                *****
+////                *****
+////                *****
+//        System.out.println("First Pattern :> ");
+//        firstPattern();
+////            2.  *
+////                **
+////                ***
+////                ****
+////                *****
+//        System.out.println("Second Pattern :> ");
+//        secondPattern();
+////            3.  *****
+////                ****
+////                ***
+////                **
+////                *
+//        System.out.println("Third Pattern :> ");
+//        thirdPattern();
+////    4.  1
+////        1 2
+////        1 2 3
+////        1 2 3 4
+////        1 2 3 4 5
+//        System.out.println("Fourth Pattern :> ");
+//        fourthPattern();
+////            5.  *
+////                **
+////                ***
+////                ****
+////                *****
+////                ****
+////                ***
+////                **
+////                *
+//        System.out.println("Fifth Pattern :> ");
+//        fifthPattern();
 
-        //remaining from 5 to 20
+//        6.          *
+//                   **
+//                  ***
+//                 ****
+//                *****
+//        System.out.println("Sixth Pattern :> ");
+//        sixthPattern();
+//           7.   *****
+//                 ****
+//                  ***
+//                   **
+//                    *
+//        System.out.println("Seventh Pattern :> ");
+//        seventhPattern();
+
+
     }
     static void firstPattern(){
         for(int i=0;i<5;i++){
@@ -65,4 +91,41 @@ public class StarPatterns {
             System.out.println();
         }
     }
+    static void fifthPattern(){
+        for(int i=0;i<5;i++){
+            for(int j=i;j>=0;j--){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for(int i=4;i>=0;i--){
+            for(int j=i;j>0;j--){
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+    static void sixthPattern(){
+        for(int i=0;i<5;i++){
+            for(int j=5-i; j>0; j--){
+                System.out.print(" ");
+            }
+            for(int k=0;k<=i;k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    static void seventhPattern(){
+        for(int i=5;i>0;i--){
+            for(int j=5-i;j>0;j--){
+                System.out.print(" ");
+            }
+            for(int k=0;k<i;k++){
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+
 }
