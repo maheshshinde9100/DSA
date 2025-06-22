@@ -57,7 +57,28 @@ public class StarPatterns {
 //        System.out.println("Seventh Pattern :> ");
 //        seventhPattern();
 
+//        8.      *
+//               ***
+//              *****
+//             *******
+//            *********
+//        System.out.println("Eighth Pattern :> ");
+//        eighthPattern();
 
+//        9.  *********
+//             *******
+//              *****
+//               ***
+//                *
+//        System.out.println("Eighth Pattern :> ");
+//        ninethPattern();
+//        10.      *
+//                * *
+//               * * *
+//              * * * *
+//             * * * * *
+        System.out.println("Eighth Pattern :> ");
+        tenthPattern();
     }
     static void firstPattern(){
         for(int i=0;i<5;i++){
@@ -127,5 +148,53 @@ public class StarPatterns {
             System.out.println();
         }
     }
+static void eighthPattern(){
+        int white = 4;
+        for(int i=0;i<9;i=i+2){
+            for(int w=white;w>0;w--){
+                System.out.print(" ");
+            }
+            for(int j=0;j<=i;j++){
+                System.out.print("*");
+            }
+            for(int w=white;w>0;w--){
+                System.out.print(" ");
+            }
+            white--;
+            System.out.println();
+        }
+}
+static void ninethPattern(){
+    int white = 0;
+    for(int i=9;i>0;i=i-2){
+        white++;
+        for(int w=0;w<white;w++){
+            System.out.print(" ");
+        }
+        for(int j=i;j>0;j--){
+            System.out.print("*");
+        }
+        for(int w=0;w<white;w++){
+            System.out.print(" ");
+        }
+        System.out.println();
+    }
+}
+static void tenthPattern(){
+        int white = 3;
+        for(int i=0;i<5;i++){
+            for(int w=white;w>0;w--){
+                System.out.print(" ");
+            }
+            for(int j=0;j<=i;j++){
+                System.out.print(" * ");
+            }
+            for(int w=white;w>0;w--){
+                System.out.print(" ");
+            }
+            white--;
 
+            System.out.println();
+        }
+}
 }
