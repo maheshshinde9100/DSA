@@ -1,4 +1,4 @@
-package Patterns;
+package Patterns.SlidingWindow;
 
 import java.util.Arrays;
 import java.util.*;
