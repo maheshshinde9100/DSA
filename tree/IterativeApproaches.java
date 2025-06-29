@@ -70,7 +70,7 @@ public class IterativeApproaches {
             default:
                 System.out.println("Invalid choice");
         }
-        System.out.println(); // for cleaner output
+        System.out.println();
     }
 
     public void preorder(TreeNode root) {

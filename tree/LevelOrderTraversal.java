@@ -3,7 +3,7 @@ package tree;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class LevelOrder {
+public class LevelOrderTraversal {
 
     static class TreeNode {
         int data;
@@ -43,7 +43,7 @@ public class LevelOrder {
         root.right.left = new TreeNode(30); //
         root.right.right = new TreeNode(80); //
 
-        LevelOrder order = new LevelOrder();
+        LevelOrderTraversal order = new LevelOrderTraversal();
         order.display(root);
     }
 }
