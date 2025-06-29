@@ -60,6 +60,13 @@ public class DFS_Tree {
         while(!stack2.isEmpty()){
             System.out.println(stack2.pop().data);
         }
+
+    }
+
+    public void clearStack(){
+        while(!stack.isEmpty()){
+            stack.pop();
+        }
     }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(100);  //                                 100
@@ -71,8 +78,10 @@ public class DFS_Tree {
         root.right.right = new TreeNode(80); //
 
         DFS_Tree obj = new DFS_Tree();
-//        obj.preorder(root);  //preorder (VLR): 100,5,60,20,10,30,80
-//        obj.inorder(root); //inorder (LVR): 60,5,20,100,30,10,80
+        obj.preorder(root);  //preorder (VLR): 100,5,60,20,10,30,80
+        obj.clearStack();
+        obj.inorder(root); //inorder (LVR): 60,5,20,100,30,10,80
+        obj.clearStack();
         obj.postorder(root); //postorder (LRV): 60,20,5,30,80,10,100
     }
 }
