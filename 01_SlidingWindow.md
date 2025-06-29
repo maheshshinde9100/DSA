@@ -551,7 +551,7 @@ lengthOfLongestSubstring ([0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 1], 3)//9, Replac
 - The algorithm runs in constant space `O(1)`.
 
 ## 🌟 Permutation in a String (hard)
-https://leetcode.com/problems/permutation-in-string/
+https://leetcode.com/problems/permutation-in-string/            
 
 > Given a string and a pattern, find out if the <b>string contains any permutation of the pattern</b>.
 

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class CyclicSort {
     public static void main(String[] args) {
-        int[] arr = {5, 3, 1, 2, 4};
+        int[] arr = {5, 3, 1};
         System.out.println(Arrays.toString(arr));
         sortArr(arr);
         System.out.println("After Cyclic sort :> " + Arrays.toString(arr));
@@ -15,7 +15,7 @@ public class CyclicSort {
         int i = 0;
         while (i < arr.length) {
             int correct_index = arr[i] - 1;
-            if (arr[i] != arr[correct_index]) {
+            if (correct_index<arr.length && arr[i] != arr[correct_index]) {
                 swap(arr, i, correct_index);
             } else {
                 i++;

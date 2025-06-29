@@ -13,7 +13,7 @@ public class SymmetryTree {
         }
     }
 
-    TreeNode root = null;
+    private TreeNode root = null;
 
     public boolean isSymmetric(TreeNode root) {
         if (root == null) {
