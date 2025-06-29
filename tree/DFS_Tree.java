@@ -42,9 +42,24 @@ public class DFS_Tree {
             current = current.right;
         }
     }
+    Stack<TreeNode> stack2 = new Stack<>();
     void postorder(TreeNode root){
         if(root==null) return;
-
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode current = stack.pop();
+            if(current.left!=null){
+                stack.push(current.left);
+            }
+            if(current.right!=null){
+                stack.push(current.right);
+            }
+            stack2.push(current);
+            current = current.left;
+        }
+        while(!stack2.isEmpty()){
+            System.out.println(stack2.pop().data);
+        }
     }
     public static void main(String[] args) {
         TreeNode root = new TreeNode(100);  //                                 100
@@ -57,7 +72,7 @@ public class DFS_Tree {
 
         DFS_Tree obj = new DFS_Tree();
 //        obj.preorder(root);  //preorder (VLR): 100,5,60,20,10,30,80
-        obj.inorder(root); //inorder (LVR): 60,5,20,100,30,10,80
-//        obj.postorder(root); //postorder (LRV): 60,20,5,30,80,10
+//        obj.inorder(root); //inorder (LVR): 60,5,20,100,30,10,80
+        obj.postorder(root); //postorder (LRV): 60,20,5,30,80,10,100
     }
 }
