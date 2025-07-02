@@ -15,10 +15,10 @@ Check if a string is a palindrome
 Input: "madam" → Output: true     // done
 
 Count number of zeros in a number
-Input: 102030 → Output: 3     //
+Input: 102030 → Output: 3     //done
 
 Print numbers from N to 1 and 1 to N recursively
-Input: 5 → Output: 5 4 3 2 1
+Input: 5 → Output: 5 4 3 2 1        //done
 
 🟡 Intermediate Level – Recursion with Decisions
 Power of a number (a^b)
