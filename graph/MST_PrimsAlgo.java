@@ -5,7 +5,7 @@ import java.util.*;
 class Graph {
     int V;
     int E;
-    List<List<int[]>> adjList;
+    List<List<int[]>> adjList; //list of list : [[u,v,w],[u,v,w],.....]
 
     Graph(int v, int e) {
         this.V = v;
