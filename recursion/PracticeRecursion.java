@@ -8,7 +8,7 @@ public class PracticeRecursion {
     public static void main(String[] args) {
         int n = 5; // 1 2 3 4 5
                    // 5 4 3 2 1
-        // System.out.println(printOneToN(1,n)); //done
+        System.out.println(printOneToN(n)); //done
         // System.out.println(printNToOne(n)); //done
         // System.out.println(printBoth(n)); //done
 
@@ -16,16 +16,17 @@ public class PracticeRecursion {
     //    System.out.println(pow(x, y));  // Input: 2^5 → Output: 32
 
 
-    System.out.println(tribonacci(10));
+    // System.out.println(tribonacci(10));
 
     }
 
-    private static int printOneToN(int count, int n) {
-        if (count == n) {
-            return n;
+    private static int printOneToN(int n) {
+        if(n==1){
+            return 1;
         }
-        System.out.print(count + " ");
-        return printOneToN(count + 1, n);
+        int val = printOneToN(n-1);
+        System.out.println(val);
+        return n;
     }
 
     private static int printNToOne(int n) {
@@ -37,14 +38,13 @@ public class PracticeRecursion {
     }
 
     private static int printBoth(int n) {
-        if (count == n) {
-            return 0;
-        }
-        System.out.print(n - count + " ");
-        count++;
-        System.out.print(count + "\n");
-
-        return printBoth(n);
+      if(n==1){
+        return 1;
+      }
+      System.out.println(n);
+      int val = printBoth(n-1);
+      System.out.println(val);
+      return n;
     }
 
     private static int pow(int x, int n) { //x^y
