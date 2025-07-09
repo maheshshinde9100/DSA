@@ -28,7 +28,7 @@ Find GCD (using Euclidean Algorithm recursively)
 Input: 48, 18 → Output: 6
 
 Find nth element of a custom sequence (like Tribonacci)
-T(n) = T(n-1) + T(n-2) + T(n-3)
+T(n) = T(n-1) + T(n-2) + T(n-3)           //done
 
 Check if array is sorted
 Input: [1, 2, 3, 4] → Output: true

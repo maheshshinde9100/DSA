@@ -1,7 +1,5 @@
 package graph;
-
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class GraphAdjList {
     class GraphNode{

@@ -1,13 +1,12 @@
 package graph;
 
 import java.util.*;
-
-class Graph {
+class Graph1 {
     int V;
     int E;
     List<List<int[]>> adjList; //list of list : [[u,v,w],[u,v,w],.....]
 
-    Graph(int v, int e) {
+    Graph1(int v, int e) {
         this.V = v;
         this.E = e;
         adjList = new ArrayList<>();
@@ -44,7 +43,10 @@ class Graph {
             int weight = curr[1];
             int parent = curr[2];
 
-            if (visited[u]) continue;
+            if (visited[u]) {
+                continue;
+            }
+            
             visited[u] = true;
 
             if (parent != -1) {
@@ -73,7 +75,7 @@ public class MST_PrimsAlgo {
         System.out.println("Enter number of edges: ");
         e = scanner.nextInt();
 
-        Graph g = new Graph(v, e);
+        Graph1 g = new Graph1(v, e);
         for (int i = 0; i < e; i++) {
             System.out.println("Enter (start vertex, destination vertex, weight): ");
             int src = scanner.nextInt();

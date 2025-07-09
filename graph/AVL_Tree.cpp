@@ -14,11 +14,18 @@
  TreeNode* root;
 
  int height(TreeNode* root){
-    return root==nullptr ? 0 : root->height;
+    if(root==nullptr){
+        return 0;
+    }else{
+        return root->height;
+    }
  }
 
  int getBalance(TreeNode* root){
-    return root==nullptr ? 0 : height(root->left) - height(root->right);
+    if(root==nullptr){
+        return 0;
+    }
+    return height(root->left) - height(root->right);
  }
 
  TreeNode* rightRotate(TreeNode*& y){
