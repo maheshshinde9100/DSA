@@ -18,32 +18,52 @@ public class BinarySearch{
         return -1;
     }
 
-    static int[] twoDSearch(int[][] arr,int key){
-        int start = 0;
-        int end = arr[0].length-1;
-        while(start<=end){
-           //remaining
+    //staircase approach
+    static boolean twoDSearch(int[][] arr,int target){
+        if(arr==null ||arr.length==0 || arr[0].length==0) return false;
+        int rows = arr.length;
+        int cols  = arr[0].length;
+        int row = 0;
+        int col = cols-1;
+        while(row < rows && col>=0){
+            if(arr[row][col]==target){
+                return true;
+            }else if(arr[row][col] > target){
+                col--;
+            }else{
+                row++;
+            }
         }
-        return new int[]{-1,-1};
+        return false;
     }
+
+
     public static void main(String[] args) {
-        int[] arr = {10,20,30,40,50};
-        int temp = oneDSearch(arr, 30);
-        if(temp == -1){
-            System.out.println("Element not found :> ");
-        }else{
-            System.out.println("Element found fount at Index :> "+temp);
+//        int[] arr = {10,20,30,40,50};
+//        int temp = oneDSearch(arr, 30);
+//        if(temp == -1){
+//            System.out.println("Element not found :> ");
+//        }else{
+//            System.out.println("Element found fount at Index :> "+temp);
+//        }
+
+        //search in 2D array
+        int arr2[][] = {
+                {40,140,240,340},
+                {60,160,260,360},
+                {80,180,280,380},
+                {100,200,300,400},
+        };
+        int target  = 180;
+        //using inbuilt binarySearch() method
+        for(int[] row : arr2){
+            if(Arrays.binarySearch(row,target) >= 0){
+                System.out.println("founded in this row :> "+Arrays.toString(row));
+            }
         }
 
-        //binary search in 2D array
-        int arr2[][] = {
-            {100,200,300,400},
-            {80,180,280,380},
-            {60,160,260,360},
-            {40,140,240,340}
-        };
-
-        int res[] =twoDSearch(arr2,180);
-        System.out.println(Arrays.toString(res));
+        boolean res = twoDSearch(arr2,target);
+        System.out.println("is target present :> "+res);
     }
+
 }
