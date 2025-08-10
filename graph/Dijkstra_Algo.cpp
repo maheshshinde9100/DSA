@@ -3,17 +3,6 @@
 #define INF 999999
 using namespace std;
 
-int getMinIndex(int distance[], bool visited[]){
-    int minDist = INF, minIndex = -1; 
-    for(int v = 0; v<V; v++){
-        if(!visited[v] && distance[v]<minDist){
-            minDist = distance[v];
-            minIndex = v;
-        }
-    }
-    return minIndex;
-}
-
 void printShortestPaths(int distance[]){
     for(int i=0;i<V;i++){
         cout<<i<<" ->\t\t"<<distance[i]<<endl;
@@ -41,9 +30,18 @@ void dijkstra(int g[V][V],int src){
             }
         }
     }
-
     //print
     printShortestPaths(distance);
+}
+int getMinIndex(int distance[], bool visited[]){
+    int minDist = INF, minIndex = -1;
+    for(int v = 0; v<V; v++){
+        if(!visited[v] && distance[v]<minDist){
+            minDist = distance[v];
+            minIndex = v;
+        }
+    }
+    return minIndex;
 }
 
 int main(){
