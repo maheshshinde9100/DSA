@@ -18,38 +18,26 @@ Given set: `[1, 5, 3]`
 4. Add the third number `3` to all the existing subsets: `[[], [1], [5], [1,5], `<b>`[3], [1,3], [5,3], [1,5,3]`</b>`]`.
 
 Since the input set has distinct elements, the above steps will ensure that we will not have any duplicate subsets.
-````js
-function findSubsets(nums) {
-  const subsets = [];
-  
-  //start by adding the empty subset
-  subsets.push([])
-  
-  for(let i = 0; i < nums.length; i++) {
-    const currentNumber = nums[i]
-    
-    //we will take all existing subsets and insert the current
-    //number in them to create new subsets
-    const n = subsets.length
-
-    //create a new subset from the existing subset and insert
-    //the current element to it
-    for(let j = 0; j < n; j++) {
-      
-      //clone the permutation
-      // const set1 = subsets[j].slice(0)
-      
-      // set1.push(currentNumber)
-      subsets.push([...subsets[j], nums[i]])
+````java
+//java solution
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> currSubset = new ArrayList<>();
+        dfs(nums,0,currSubset,res);
+        return res;
     }
-  }
-
-  return subsets;
-};
-
-
-findSubsets([1, 3])
-findSubsets([1, 5, 3])
+    public void dfs(int[] nums, int index, List<Integer> curr, List<List<Integer>> res){
+        if(index==nums.length){
+            res.add(new ArrayList<>(curr));
+            return;
+        }
+        curr.add(nums[index]);
+        dfs(nums,index+1,curr,res);
+        curr.remove(curr.size()-1);
+        dfs(nums,index+1,curr,res);
+    }
+}
 ````
 - Since, in each step, the number of subsets doubles as we add each element to all the existing subsets, therefore, we will have a total of `O(2ᴺ)` subsets, where `N` is the total number of elements in the input set. And since we construct a new subset from an existing set, therefore, the time complexity of the above algorithm will be `O(N*2ᴺ)`.
 - All the additional space used by our algorithm is for the output list. Since we will have a total of `O(2ᴺ)` subsets, and each subset can take up to `O(N)` space, therefore, the space complexity of our algorithm will be `O(N*2ᴺ)`.
