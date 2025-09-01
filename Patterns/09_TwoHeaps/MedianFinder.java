@@ -1,7 +1,8 @@
 /*
 LeetCode (Hard) : 295. Find Median from Data Stream
 */
-class MedianFinder {
+import java.util.PriorityQueue;
+public class MedianFinder {
     private PriorityQueue<Integer> maxH; 
     private PriorityQueue<Integer> minH; 
     public MedianFinder() {
@@ -27,5 +28,9 @@ class MedianFinder {
         } else{
             return maxH.peek();
         }
+    }
+
+    public static void main(String[] args) {
+        MedianFinder obj = new MedianFinder();
     }
 }
